@@ -1,0 +1,28 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4 
+
+PortSystem          1.0
+
+name                haskell-stack
+version             1.5.1
+categories          haskell devel
+platforms           darwin
+license             BSD
+maintainers         commercialhaskell \
+                    @ajm188
+description         The Haskell Tool Stack
+long_description    Stack is a cross-platform program for developing Haskell \
+                    projects. It is aimed at Haskellers both new and experienced.
+homepage            http://haskellstack.org/
+master_sites        https://github.com/commercialhaskell/stack/releases/download/v${version}/
+distname            stack-${version}-osx-x86_64
+
+checksums           rmd160 03efd2afed2228c374a0ba16dac7f4bc79f0b29b \
+                    sha256 ef9b06070817d741d7e81025e426100f8583c994f3edc9e3255af6c916c276bf
+
+use_configure       no
+
+build               {}
+
+destroot.cmd        cp
+destroot.target     stack
+destroot.destdir    ${destroot}${prefix}/bin/stack
